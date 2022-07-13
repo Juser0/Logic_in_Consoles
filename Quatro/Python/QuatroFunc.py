@@ -1,3 +1,4 @@
+from QuatroClass import *
 import random
 import os
 
