@@ -1,6 +1,6 @@
-from QuatroClass import *
 import random
 import os
+from QuatroClass import *
 
 def print_Deck(list_name):
     for i in range(len(list_name)):
@@ -38,3 +38,9 @@ def trade(wp, to, gived):
     return take
 
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
+deck = [] # 덱
+Vplayers = [] # 가상 플레이어
+players = [] # 실제 플레이어
+turn = 0 # n번 플레이어의 턴임을 확인시킴
+is_trade = False # 교환 여부를 확인시킴

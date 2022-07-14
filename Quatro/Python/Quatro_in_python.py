@@ -1,11 +1,12 @@
 from QuatroFunc import *
-from QuatroClass import *
 
+'''
 deck = [] # 덱
 Vplayers = [] # 가상 플레이어
 players = [] # 실제 플레이어
 turn = 0 # n번 플레이어의 턴임을 확인시킴
 is_trade = False # 교환 여부를 확인시킴
+'''
 
 # 가상 플레이어 6인의 객체 추가
 for i in range(6): 
@@ -95,7 +96,7 @@ while len(players[0].opened) < 4 and len(players[1].opened) < 4:
     if is_trade == False:
         copen = input("\n플레이어 "+ str(turn + 1) + "님 카드를 어떤 카드를 오픈하시겠습니까? (n번째 카드를 열고 싶다 -> n 입력) : ")
         players[0].opened.append(players[0].hands[int(copen) - 1])
-        del players[0].hands[int(copen) + 1]
+        del players[0].hands[int(copen) - 1]
 
     print("\n플레이어 2님 카드를 어떤 카드를 오픈하시겠습니까?", end='')
 
