@@ -51,29 +51,28 @@ print_Deck(players[0].hands)
 '''
 while players[0].mulligan > 0 or players[1].mulligan > 0:
     if turn == 0:
-        is_mul = input("멀리건 진행하시겠습니까? (예, Y, Yes면 진행, 이외는 진행 X) : ")
+        is_mul = input("플레이어 1님, 멀리건 진행하시겠습니까? (예, Y, Yes면 진행, 이외는 진행 X) : ")
         if is_mul == 'Y' or is_mul == 'y' or is_mul == 'Yes' or is_mul == 'yes' or is_mul == '예':
-            players[0].mulligan -= 1
+            players[turn].mulligan -= 1
             deck.extend(players[0].hands)
-            players[0].hands = deck[:4]
+            players[turn].hands = deck[:4]
             del deck[:4]
-            print('플레이어 1님, 멀리건을 진행합니다. 남은 멀리건 횟수는 ' + str(players[0].mulligan) + '회 입니다')
-            print_Deck(players[0].hands)
+            print('플레이어 1님, 멀리건을 진행합니다. 남은 멀리건 횟수는 ' + str(players[turn].mulligan) + '회 입니다')
+            print_Deck(players[turn].hands)
         else:
-            players[0].mulligan = 0
+            players[turn].mulligan = 0
         turn = 1
     else:
-        snum = 0
-        for i in range(len(players[1].hands)):
-            snum += players[1].hands[i].num
-        if snum < 14:
-            players[1].mulligan -= 1 
+        is_mul = input("플레이어 2님, 멀리건 진행하시겠습니까? (예, Y, Yes면 진행, 이외는 진행 X) : ")
+        if is_mul == 'Y' or is_mul == 'y' or is_mul == 'Yes' or is_mul == 'yes' or is_mul == '예':
+            players[turn].mulligan -= 1
             deck.extend(players[1].hands)
-            players[1].hands = deck[:4]
+            players[turn].hands = deck[:4]
             del deck[:4]
-            print('플레이어 2님, 멀리건을 진행합니다. 남은 멀리건 횟수는 ' + str(players[1].mulligan) + '회 입니다')
+            print('플레이어 2님, 멀리건을 진행합니다. 남은 멀리건 횟수는 ' + str(players[turn].mulligan) + '회 입니다')
+            print_Deck(players[turn].hands)
         else:
-            players[1].mulligan = 0
+            players[turn].mulligan = 0
 
         if players[1].mulligan == 0:
             turn = 0
