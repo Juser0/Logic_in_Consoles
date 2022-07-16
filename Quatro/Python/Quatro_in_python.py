@@ -93,9 +93,9 @@ while len(players[0].opened) < 4 and len(players[1].opened) < 4:
     print_Deck(players[0].opened)
 
     if is_trade == False:
-        copen = input("\n플레이어 "+ str(turn + 1) + "님 카드를 어떤 카드를 오픈하시겠습니까? (n번째 카드를 열고 싶다 -> n 입력) : ")
-        players[0].opened.append(players[0].hands[int(copen) - 1])
-        del players[0].hands[int(copen) - 1]
+        copen = int(input("\n플레이어 "+ str(turn + 1) + "님 카드를 어떤 카드를 오픈하시겠습니까? (n번째 카드를 열고 싶다 -> n 입력) : "))
+        players[0].opened.append(players[0].hands[copen - 1])
+        del players[0].hands[copen - 1]
 
     print("\n플레이어 2님 카드를 어떤 카드를 오픈하시겠습니까?", end='')
 
@@ -106,5 +106,13 @@ while len(players[0].opened) < 4 and len(players[1].opened) < 4:
     ctrade = input("플레이어 "+ str(turn + 1) + "님 카드 교환하시겠습니까? (예, Y, Yes면 진행, 이외는 진행 X) : ")
     if ctrade == 'Y' or ctrade == 'y' or ctrade == 'Yes' or ctrade == 'yes' or ctrade == '예':
         is_trade = True
+    to, gidx = map(int, input("플레이어 "+ str(turn + 1) + "님 어떤 플레이어와 몇번째 카드를 교환하시겠습니까? ex) 1번 플레이어와 2번째 카드 교환 시 1 2 입력 : ").split())
+    gived = players[turn].hands[gidx - 1]
+    if Vplayers[to - 1].is_traded[turn] == False:
+        print("플레이어 "+ str(turn + 1) + "님" + str(to) + "번 플레이어와 카드 교환합니다.")
+        trade(turn, to, gived)
+        print_Players(Vplayers)
+        print()
+        print_Deck(players[0].hands)
     
     

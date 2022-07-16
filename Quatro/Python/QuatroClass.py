@@ -21,8 +21,7 @@ class Card:
 class Vplayer:
     hands = []
     def __init__(self):
-        self.is_traded0 = False
-        self.is_traded1 = False
+        self.is_traded = [False, False]
 
 '''
 플레이어 클래스
