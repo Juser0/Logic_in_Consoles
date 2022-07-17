@@ -97,7 +97,9 @@ while len(players[0].opened) < 4 and len(players[1].opened) < 4:
         players[0].opened.append(players[0].hands[copen - 1])
         del players[0].hands[copen - 1]
 
-    print("\n플레이어 2님 카드를 어떤 카드를 오픈하시겠습니까?", end='')
+    copen = int(input("\n플레이어 2님 카드를 어떤 카드를 오픈하시겠습니까?", end=''))
+    players[1].opened.append(players[1].hands[copen - 1])
+    del players[1].hands[copen - 1]
 
     print("1번 플레이어 님의 오픈된 카드입니다 : ")
     print_Deck(players[0].opened)
