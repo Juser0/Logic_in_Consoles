@@ -4,24 +4,30 @@
 
 class Card:
     def __init__(self):
-        self.color = 'Black' # 초기 카드는 검은색 0으로 초기화
-        self.num = 0 # 초기 카드는 검은색 0으로 초기화
-        self.visible = False # 초기 카드의 보여줌 여부 설정 (가상플레이어, 본인 카드 표시여부)
+        self.__color = 'Black' # 초기 카드는 검은색 0으로 초기화
+        self.__num = 0 # 초기 카드는 검은색 0으로 초기화
+        self.__visible = False # 초기 카드의 보여줌 여부 설정 (가상플레이어, 본인 카드 표시여부)
+    
+    @property
+    def color(self):
+        return self.__color
 
-    def getColor(self):
-        return self.color
+    @property
+    def num(self):
+        return self.__num
 
-    def getNum(self):
-        return self.num
+    @property
+    def visible(self):
+        return self.__visible
 
-    def getVisible(self):
-        return self.visible
+    @color.setter
+    def color(self, color: str):
+        self.__color = color
 
-    def setColor(self, color: str):
-        self.color = color
+    @num.setter
+    def num(self, num : int):
+        self.__num = num
 
-    def setNum(self, num : int):
-        self.num = num
-
-    def setVisible(self, Status: bool):
-        self.visible = Status
+    @visible.setter
+    def visible(self, visible: bool):
+        self.__visible = visible

@@ -8,12 +8,14 @@ from gc import is_tracked
 class Player:
     def __init__(self):
         self.hands = []
-        self.is_traded = False
-        self.mulligan = 2
+        self.__is_traded = False
+        self.__mulligan = 2
     
-    def getMulligan(self):
+    @property
+    def mulligan(self):
         return self.mulligan
     
-    def setMulligan(self, Num : int):
-        self.mulligan = Num
+    @mulligan.setter
+    def mulligan(self, mulligan: int):
+        self.__mulligan = mulligan
 
