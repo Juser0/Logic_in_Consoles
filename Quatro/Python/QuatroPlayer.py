@@ -1,21 +1,12 @@
-'''
-2022-07-21 클래스 설계 후 제대로 된 클래스 구현을 위해 클래스별 파일을 분리하여 임시로 작성
-'''
+from QuatroUser import User
 
-from gc import is_tracked
+class QuatroPlayer(User):
+    __mulligan = 2
 
-
-class Player:
-    def __init__(self):
-        self.hands = []
-        self.__is_traded = False
-        self.__mulligan = 2
-    
     @property
     def mulligan(self):
-        return self.mulligan
+        return self.__mulligan
     
     @mulligan.setter
-    def mulligan(self, mulligan: int):
+    def mulligan(self, mulligan : int):
         self.__mulligan = mulligan
-
